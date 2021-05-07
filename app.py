@@ -5,7 +5,7 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb+srv://jimmywhite87:Ruger2012@charged-up.yt7ie.mongodb.net/charged-up?retryWrites=true&w=majority")
+mongo = PyMongo(app, uri="mongodb+srv://jimmywhite87:Ruger2012@cluster0.kmis8.mongodb.net/pitchfork-review?retryWrites=true&w=majority")
 
 
 # Route to render index.html template using data from Mongo
@@ -19,41 +19,41 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/carinfo")
-def carinfo():
+@app.route("/icons")
+def icons():
 
     # Return template and data
-    return render_template("carinfo.html")
+    return render_template("icons.html")
 
-@app.route("/charging")
-def charging():
-
-    # Return template and data
-    return render_template("charging.html")
-
-@app.route("/chargingstations")
-def chargingstations():
+@app.route("/map")
+def map():
 
     # Return template and data
-    return render_template("chargingstations.html")
+    return render_template("map.html")
 
-@app.route("/manufacturers")
-def manufacturers():
-
-    # Return template and data
-    return render_template("manufacturers.html")
-
-@app.route("/radial")
-def radial():
+@app.route("/notifications")
+def notifications():
 
     # Return template and data
-    return render_template("radial.html")
+    return render_template("notifications.html")
 
-@app.route("/new")
-def new():
+@app.route("/tables")
+def tables():
 
     # Return template and data
-    return render_template("new.html")
+    return render_template("tables.html")
+
+@app.route("/typography")
+def typography():
+
+    # Return template and data
+    return render_template("typography.html")
+
+@app.route("/user")
+def user():
+
+    # Return template and data
+    return render_template("user.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
