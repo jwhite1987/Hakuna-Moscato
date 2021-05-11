@@ -13,10 +13,10 @@ mongo = PyMongo(app, uri="mongodb+srv://jimmywhite87:Ruger2012@cluster0.kmis8.mo
 def home():
 
     # Find one record of data from the mongo database
-    # charged_up = mongo.db.collection.find_one()
+    pitchfork = mongo.db.collection.find( {} )
 
     # Return template and data
-    return render_template("index.html")
+    return render_template("index.html", pitchfork=pitchfork)
 
 
 @app.route("/icons")
