@@ -1,11 +1,11 @@
 from flask import Flask, render_template, redirect, url_for
-from flask_pymongo import PyMongo
+import pymongo
 
 
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
-myclient = PyMongo.MongoClient(app, uri="mongodb+srv://jimmywhite87:Ruger2012@cluster0.kmis8.mongodb.net/pitchfork-review?retryWrites=true&w=majority")
+myclient = pymongo.MongoClient(app, uri="mongodb+srv://jimmywhite87:Ruger2012@cluster0.kmis8.mongodb.net/pitchfork-review?retryWrites=true&w=majority")
 mydb = myclient['pitchfork-db']
 artists = mydb['artists']
 
