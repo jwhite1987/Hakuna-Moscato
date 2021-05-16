@@ -5,19 +5,19 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
-mongo = PyMongo(app, uri="mongodb+srv://jimmywhite87:Ruger2012@cluster0.kmis8.mongodb.net/pitchfork-review?retryWrites=true&w=majority")
-db = mongo.pitchfork-db
-artists = db.artists
+myclient = PyMongo.MongoClient(app, uri="mongodb+srv://jimmywhite87:Ruger2012@cluster0.kmis8.mongodb.net/pitchfork-review?retryWrites=true&w=majority")
+mydb = myclient['pitchfork-db']
+artists = mydb['artists']
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
 
     # Find one record of data from the mongo database
-    artists_1 = artists.find( {} )
+    # artists_1 = artists.find( {} )
 
     # Return template and data
-    return render_template("index.html", artists=artists_1)
+    return render_template("index.html")
 
 
 @app.route("/icons")
