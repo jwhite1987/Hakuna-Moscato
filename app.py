@@ -1,11 +1,11 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-
+from config import DB_PASSWORD
 
 app = Flask(__name__)
 
 # Use PyMongo to establish Mongo connection
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:Ruger2012@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres"
+app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres'
 db = SQLAlchemy(app)
 # Route to render index.html template using data from Mongo
 @app.route("/")
