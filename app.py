@@ -14,8 +14,8 @@ engine = create_engine(f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
-GWS = Base.classes.public.gws_cleaned_dataset
-wine_mag = Base.classes.public.winemag_cleaned_dataset
+GWS = Base.classes.gws_cleaned_dataset
+wine_mag = Base.classes.winemag_cleaned_dataset
 
 
 app = Flask(__name__)
