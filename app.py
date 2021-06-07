@@ -1,17 +1,36 @@
-from flask import Flask, render_template, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, redirect, url_for, jsonify
 from config import DB_PASSWORD
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine
+from sqlalchemy import func
+
+######
+# Database Setup
+######
+Base = automap_base()
+
+engine = create_engine(f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres')
+
+Base.prepare(engine, reflect=True)
+
+GWS = Base.classes.gws_cleaned_dataset
+wine_mag = Base.classes.winemag_cleaned_dataset
+
 
 app = Flask(__name__)
 
-# Use PyMongo to establish Mongo connection
-app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres'
-db = SQLAlchemy(app)
-# Route to render index.html template using data from Mongo
+
+# app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres'
+# db = SQLAlchemy(app)
+
 @app.route("/")
 def home():
+    session = Session(engine)
 
-    # artists = mongo.db.content.find()
+    results = session.query(GWS.wine, GWS.color, GWS.country, GWS.vintage, GWS.score).all()
+    return jsonify(results)
 
     # Return template and data
     return render_template("index.html")
