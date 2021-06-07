@@ -5,7 +5,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from sqlalchemy import func
-
+import numpy as np
 ######
 # Database Setup
 ######
@@ -30,7 +30,8 @@ def home():
     session = Session(engine)
 
     results = session.query(GWS.wine, GWS.color, GWS.country, GWS.vintage, GWS.score).all()
-    return jsonify(results)
+    all_names = list(np.ravel(results))
+    return jsonify(all_names)
 
     # Return template and data
     return render_template("index.html")
