@@ -6,14 +6,30 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
 from sqlalchemy import func
 
+######
+# Database Setup
+######
+engine = create_engine(f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres')
+
+Base = automap_base()
+Base.prepare(engine, reflect=True)
+
+GWS = Base.classes.public.gws_cleaned_dataset
+wine_mag = Base.classes.public.winemag_cleaned_dataset
+
+
 app = Flask(__name__)
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres'
-db = SQLAlchemy(app)
+# app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres'
+# db = SQLAlchemy(app)
 
 @app.route("/")
 def home():
+    session = Session(engine)
+
+    results = session.query(GWS.wine, GWS.color, GWS.country, GWS.vintage, GWS.score).all()
+    return jsonify(results)
 
     # Return template and data
     return render_template("index.html")
