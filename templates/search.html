@@ -34,18 +34,105 @@ Coded by www.creative-tim.com
   <link href="static/demo/demo.css" rel="stylesheet" />
    <link rel="stylesheet" href="/static/index.css">
 </head>
-    <body>
-        <h1><center>Search Wine</center></h1>
-        <form class="example" method="post" action=""
-         style="margin:auto;max-width:600px">
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="{{ url_for('home') }}" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="static/img/logo-small.png">
+          </div>
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="{{ url_for('home') }}" class="simple-text logo-normal">
+          Hakuna Moscato
+          <!-- <div class="logo-image-big">
+            <img src="static/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active ">
+            <a href="{{ url_for('home') }}">
+              <i class="nc-icon nc-bank"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('icons') }}">
+              <i class="nc-icon nc-diamond"></i>
+              <p>Search</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('map') }}">
+              <i class="nc-icon nc-pin-3"></i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('notifications') }}">
+              <i class="nc-icon nc-bell-55"></i>
+              <p>Charts</p>
+            </a>
+          </li>
+          <!-- <li>
+            <a href="{{ url_for('user') }}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('tables') }}">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>Table List</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('typography') }}">
+              <i class="nc-icon nc-caps-small"></i>
+              <p>Typography</p>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">Wine Review Search</a>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+        <!-- <h1><center>Search Wine</center></h1> -->
+        <form class="example" method="post" action="" style="margin:auto;max-width:600px">
             <input type="text" placeholder="Enter a Year" name="wine">
             <!-- <button type="submit"><i class="fa fa-search"></i> -->
             <!-- </button> -->
         </form>
         <p></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
         <center>
-        <table>
-            <thead>
+        <table class="table table-sm">
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">Wine</th>
                     <th scope="col">Color</th>
@@ -54,7 +141,7 @@ Coded by www.creative-tim.com
                     <th scope="col">Score</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class=" table-hover">
             {% for item in data %}
                 <tr>
                     <td>{{item[1]}}</td>
@@ -66,8 +153,9 @@ Coded by www.creative-tim.com
             {% endfor %}
             </tbody>
         </table>
-
         </center>
+      </div>
+    </div>
         <!--   Core JS Files   -->
         <script src="static/js/core/jquery.min.js"></script>
         <script src="static/js/core/popper.min.js"></script>
