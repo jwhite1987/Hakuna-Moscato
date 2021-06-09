@@ -1,40 +1,56 @@
-from flask import Flask, render_template, redirect, url_for, jsonify
+from flask import Flask, render_template, redirect, url_for, jsonify, request, redirect
 from config import DB_PASSWORD
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine
-from sqlalchemy import func
+from flask_cors import CORS
+import psycopg2
+# import os
 
-######
-# Database Setup
-######
-Base = automap_base()
-
-engine = create_engine(f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres')
-
-Base.prepare(engine, reflect=True)
-
-GWS = Base.classes.gws_cleaned_dataset
-wine_mag = Base.classes.winemag_cleaned_dataset
-
+###################################### I G N O R E ################
+# import sqlalchemy
+# from sqlalchemy.ext.automap import automap_base
+# from sqlalchemy.orm import Session
+# from sqlalchemy import create_engine
+# from sqlalchemy import func
+# import numpy as np
+###################################### I G N O R E ################
 
 app = Flask(__name__)
 
+CORS(app)
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = f'postgresql://postgres:{DB_PASSWORD}@uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com:5432/postgres'
-# db = SQLAlchemy(app)
+try:
+    con = psycopg2.connect(
+        database='postgres',
+        user='postgres',
+        password=DB_PASSWORD,
+        host='uncc-database.cdwa3ro17u26.us-east-2.rds.amazonaws.com',
+        port='5432'
+    )
+
+    cur = con.cursor()
+
+except:
+    print('Error')
 
 @app.route("/")
 def home():
-    session = Session(engine)
-
-    results = session.query(GWS.wine, GWS.color, GWS.country, GWS.vintage, GWS.score).all()
-    return jsonify(results)
 
     # Return template and data
     return render_template("index.html")
 
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == "POST":
+        wine = request.form['wine']
+        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE vintage = {wine}')
+        con.commit()
+        data = cur.fetchall()
+        if len(data) == 0 and wine == 'all':
+            cur.execute("SELECT * FROM gws_cleaned_dataset")
+            con.commit()
+            data = cursor.fetchall()
+        return render_template('search.html', data=data)
+    return render_template('search.html')
+    cur.rollback()
 
 @app.route("/icons")
 def icons():
