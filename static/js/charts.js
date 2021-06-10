@@ -30,6 +30,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
             'rgb(153, 102, 255)',
             'rgb(201, 203, 207)'
           ],
+          borderWidth: 1,
       }],
       labels: countryNames
     },
