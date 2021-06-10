@@ -41,7 +41,7 @@ def home():
 def search():
     if request.method == "POST":
         wine = request.form['wine']
-        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE vintage = {wine}')
+        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE vintage = {wine} ORDER BY score DESC;')
         con.commit()
         data = cur.fetchall()
         if len(data) == 0 and wine == 'all':
@@ -52,11 +52,11 @@ def search():
     return render_template('search.html')
     cur.rollback()
 
-@app.route("/icons")
-def icons():
-
-    # Return template and data
-    return render_template("icons.html")
+# @app.route("/icons")
+# def icons():
+#
+#     # Return template and data
+#     return render_template("icons.html")
 
 @app.route("/map")
 def map():
@@ -64,29 +64,29 @@ def map():
     # Return template and data
     return render_template("map.html")
 
-@app.route("/notifications")
-def notifications():
+@app.route("/charts")
+def charts():
 
     # Return template and data
-    return render_template("notifications.html")
+    return render_template("charts.html")
 
-@app.route("/tables")
-def tables():
-
-    # Return template and data
-    return render_template("tables.html")
-
-@app.route("/typography")
-def typography():
-
-    # Return template and data
-    return render_template("typography.html")
-
-@app.route("/user")
-def user():
-
-    # Return template and data
-    return render_template("user.html")
+# @app.route("/tables")
+# def tables():
+#
+#     # Return template and data
+#     return render_template("tables.html")
+#
+# @app.route("/typography")
+# def typography():
+#
+#     # Return template and data
+#     return render_template("typography.html")
+#
+# @app.route("/user")
+# def user():
+#
+#     # Return template and data
+#     return render_template("user.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
