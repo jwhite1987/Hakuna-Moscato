@@ -32,6 +32,8 @@ Coded by www.creative-tim.com
   <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="static/demo/demo.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 
 <body class="">
@@ -212,7 +214,7 @@ Coded by www.creative-tim.com
                 <p class="card-category">24 Hours performance</p>
               </div>
               <div class="card-body ">
-                <canvas id=chartHours width="400" height="100"></canvas>
+                <canvas id="myChart" width="400" height="100"></canvas>
               </div>
               <div class="card-footer ">
                 <hr>
@@ -280,18 +282,21 @@ Coded by www.creative-tim.com
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvDJD4M1FvA2YgS8V3aRL-FWxvljbQ_3s"></script>
   <!-- Chart JS -->
-  <script src="static/js/plugins/chartjs.min.js"></script>
+  <!-- <script src="static/js/plugins/chartjs.min.js"></script> -->
   <!--  Notifications Plugin    -->
   <script src="static/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="static/demo/demo.js"></script>
-  <script>
+  <!-- <script src="static/demo/demo.js"></script> -->
+  <script src="static/js/charts.js">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
     });
-  </script>
+  </script> -->
 </body>
 
 </html>
