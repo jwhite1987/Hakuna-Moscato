@@ -32,6 +32,7 @@ Coded by www.creative-tim.com
   <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="static/demo/demo.css" rel="stylesheet" />
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 
 <body class="">
@@ -112,30 +113,7 @@ Coded by www.creative-tim.com
                       <div class="card-header">
                         <h5 class="card-title">Notifications Style</h5>
                       </div>
-                      <div class="card-body">
-                        <div class="alert alert-info">
-                          <span>This is a plain notification</span>
-                        </div>
-                        <div class="alert alert-info alert-dismissible fade show">
-                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="nc-icon nc-simple-remove"></i>
-                          </button>
-                          <span>This is a notification with close button.</span>
-                        </div>
-                        <div class="alert alert-info alert-with-icon alert-dismissible fade show" data-notify="container">
-                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="nc-icon nc-simple-remove"></i>
-                          </button>
-                          <span data-notify="icon" class="nc-icon nc-bell-55"></span>
-                          <span data-notify="message">This is a notification with close button and icon.</span>
-                        </div>
-                        <div class="alert alert-info alert-with-icon alert-dismissible fade show" data-notify="container">
-                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
-                            <i class="nc-icon nc-simple-remove"></i>
-                          </button>
-                          <span data-notify="icon" class="nc-icon nc-chart-pie-36"></span>
-                          <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
-                        </div>
+                      <div class="card-body" id='card-chart1'>
                       </div>
                     </div>
                   </div>
@@ -266,7 +244,9 @@ Coded by www.creative-tim.com
   <!--  Notifications Plugin    -->
   <script src="static/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+  <!-- <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="static/js/charts-page.js"></script>
   <script src="static/demo/demo.js"></script>
 </body>
 
