@@ -30,8 +30,8 @@ Coded by www.creative-tim.com
   <!-- CSS Files -->
   <link href="static/css/bootstrap.min.css" rel="stylesheet" />
   <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="static/demo/demo.css" rel="stylesheet" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 
 <body class="">
@@ -104,37 +104,22 @@ Coded by www.creative-tim.com
                 Google Maps
               </div>
               <div class="card-body ">
-                <div id="map" class="map"></div>
-              </div>
+                <!-- <div id="map" class="map"></div> -->
+                <div id="map" style="width: 320px; height: 480px;"></div>
+  <div>
+    <!-- <input id="address" type="textbox" value="Sydney, NSW">
+    <input type="button" value="Encode" onclick="codeAddress()"> -->
+  </div>
+
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
   <!--   Core JS Files   -->
   <script src="static/js/core/jquery.min.js"></script>
-  <script src="static/js/core/popper.min.js"></script>
+  <!-- <script src="static/js/core/popper.min.js"></script> -->
   <script src="static/js/core/bootstrap.min.js"></script>
   <script src="static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
@@ -144,12 +129,8 @@ Coded by www.creative-tim.com
   <!--  Notifications Plugin    -->
   <script src="static/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="static/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      demo.initGoogleMaps();
-    });
-  </script>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="static/js/maps.js"></script>
 </body>
 
 </html>
