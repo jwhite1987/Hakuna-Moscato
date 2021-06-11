@@ -1,11 +1,51 @@
-var ctx = document.getElementById('#chart1');
+var ctx = document.getElementById('pie-chart');
 
-d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
-        var countries = d.map(a=>a['country']);
-        var vintage = d.map(a=>a['vintage']);
-        // console.log(vintage.sum);
-        // console.log(countries);
-        console.log(vintage.reduce((a, b) => a + b, 0))
+console.log(ctx);
+
+d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
+
+        var red = [];
+        var white = [];
+        var rose = [];
+        d.forEach(function(data){
+                if (data.category == "red"){
+                        red.push(data.category);
+                }
+                else if (data.category == "white"){
+                        white.push(data.category);
+                }
+                else if (data.category == "rose"){
+                        rose.push(data.category);
+                }
+        })
+
+        var catTot = red.length + white.length + rose.length;
+
+        var redPerc = red.length/catTot;
+        var whitePerc = white.length/catTot;
+        var rosePerc = rose.length/catTot;
+        console.log(redPerc);
+
+        new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                  labels: ["Red", "White", "Rose"],
+                  datasets: [
+                    {
+                      label: "Wine Percentage in Region",
+                      backgroundColor: ["#722f37", "#EEEDC4", "#9d5c75"],
+                      data: [redPerc,whitePerc,rosePerc]
+                    }
+                  ]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Wine Type by Percentage in Region'
+                  }
+                }
+            });
+            
 })
 
 // function init() {
