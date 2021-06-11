@@ -69,29 +69,27 @@ d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
         // console.log(pointsPerRegion);
 
 
-
-
  // Calculate the sums and group data (while tracking count)
- const reduced = pointsPerRegion.reduce(function(m, d){
-        if(!m[d.region]){
-          m[d.region] = {...d, count: 1};
-          return m;
-        }
-        m[d.region].points += d.points;
-        m[d.region].count += 1;
-        return m;
-     },{});
+//  const reduced = pointsPerRegion.reduce(function(m, d){
+//         if(!m[d.region]){
+//           m[d.region] = {...d, count: 1};
+//           return m;
+//         }
+//         m[d.region].points += d.points;
+//         m[d.region].count += 1;
+//         return m;
+//      },{});
      
-     // Create new array from grouped data and compute the average
-     const result = Object.keys(reduced).map(function(k){
-         const item  = reduced[k];
-         return {
-             region: item.region,
-             points: item.points/item.count,
-         }
-     })
+//      // Create new array from grouped data and compute the average
+//      const result = Object.keys(reduced).map(function(k){
+//          const item  = reduced[k];
+//          return {
+//              region: item.region,
+//              points: item.points/item.count,
+//          }
+//      })
      
-     console.log(JSON.stringify(result,null,4));
+//      console.log(JSON.stringify(result,null,4));
 
 
 });
