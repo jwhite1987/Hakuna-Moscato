@@ -50,48 +50,51 @@ var btx = document.getElementById('bar-chart')
 d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
 
         var countryFilter = d.filter(d=>d.country === 'US');
+
         // var countryRating = countryFilter.filter(d=>d.points);
-        // console.log(countryFilter[0].points);
+        // console.log(countryFilter);
         pointsPerRegion = []
         for (var i=0; i < countryFilter.length; i++) {
                 var points = countryFilter[i].points;
                 var region = countryFilter[i].province;
 
                 // dictionary
-                // pointsAndRegion = {'points': points, 'region': region};
+                pointsAndRegion = {'region': region, 'points': points, };
 
                 // array
-                pointsAndRegion = [points, region];
+                // pointsAndRegion = [points, region];
                 pointsPerRegion.push(pointsAndRegion);
         }
-console.log(pointsPerRegion[0][0]);
 
-// var groupBy = function(xs, key) {
-//         return xs.reduce(function(rv, x) {
-//           (rv[x[key]] = rv[x[key]] || []).push(x);
-//           return rv;
-//         }, {});
-//       };
-      
-//       console.log(groupBy(['one', 'two', 'three'], 'length'));
+        // console.log(pointsPerRegion);
 
 
 
-        // for (var i=1; i<countryFilter.length; i++) {
-        //         var province = pointsPerRegion[i-1].province;
-        //         var
-        // }
 
-// pointsPerRegion.sort(function sortFunction(a, b) {
-//         return b - a;
-
-//       });
-
+ // Calculate the sums and group data (while tracking count)
+ const reduced = pointsPerRegion.reduce(function(m, d){
+        if(!m[d.region]){
+          m[d.region] = {...d, count: 1};
+          return m;
+        }
+        m[d.region].points += d.points;
+        m[d.region].count += 1;
+        return m;
+     },{});
+     
+     // Create new array from grouped data and compute the average
+     const result = Object.keys(reduced).map(function(k){
+         const item  = reduced[k];
+         return {
+             region: item.region,
+             points: item.points/item.count,
+         }
+     })
+     
+     console.log(JSON.stringify(result,null,4));
 
 
 });
-
-
 
 
 // d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
