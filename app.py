@@ -57,7 +57,7 @@ def search():
 def search2():
     if request.method == "POST":
         country = request.form['country']
-        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE country = {country} ORDER BY score DESC;')
+        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE country = \'{country}\' ORDER BY score DESC;')
         con.commit()
         data = cur.fetchall()
         if len(data) == 0 and wine == 'all':
