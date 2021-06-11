@@ -51,14 +51,14 @@ Coded by www.creative-tim.com
               <p>Home</p>
             </a>
           </li>
-          <li>
+          <li class="active ">
             <a href="#" data-toggle="collapse" data-target="#demo">
               <i class="nc-icon nc-diamond"></i>
               <p>Search</p>
             </a>
             <ul id="demo" class="collapse">
-              <li class="active "><a href="{{ url_for('search') }}">Search by Year</a></li>
-              <li><a href="{{ url_for('search2') }}">Search by Country</a></li>
+              <li><a href="{{ url_for('search') }}">Search by Year</a></li>
+              <li class="active "><a href="{{ url_for('search2') }}">Search by Country</a></li>
               <li><a href="{{ url_for('colors') }}">Search by Color</a></li>
             </ul>
           </li>
@@ -99,7 +99,7 @@ Coded by www.creative-tim.com
           <div class="col-md-12">
         <!-- <h1><center>Search Wine</center></h1> -->
         <form class="example" method="post" action="" style="margin:auto;max-width:600px">
-            <input placeholder="Enter a Year" name="wine" class="form-control formcontrol-sm">
+            <input placeholder="Enter a Country" name="country" class="form-control formcontrol-sm">
         </form>
         <p></p>
           </div>
