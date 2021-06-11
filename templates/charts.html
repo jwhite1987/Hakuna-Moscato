@@ -33,7 +33,9 @@ Coded by www.creative-tim.com
   <!-- CSS Files -->
   <link href="static/css/bootstrap.min.css" rel="stylesheet" />
   <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
-
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="static/demo/demo.css" rel="stylesheet" />
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 
 <body class="">
@@ -106,7 +108,63 @@ Coded by www.creative-tim.com
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6">
+                    <!-- <div id="pie-chart"> -->
+                      <canvas id="pie-chart" width="300" height="300"></canvas>
                   </div>
+
+                  <div class="col-md-6">
+                    <!-- <div id="pie-chart"> -->
+                      <canvas id="bar-chart" width="300" height="300"></canvas>
+                  </div>
+                  
+                    <!-- </div> -->
+                    <!-- <div class="card card-plain">
+                      <div class="card-header">
+                        <h5 class="card-title">Notifications Style</h5>
+                      </div>
+                      <div class="card-body" id='card-chart1'>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="card card-plain">
+                      <div class="card-header">
+                        <h5 class="card-title">Notification states</h5>
+                      </div>
+                      <div class="card-body">
+                        <div class="alert alert-primary alert-dismissible fade show">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                          </button>
+                          <span><b> Primary - </b> This is a regular notification made with ".alert-primary"</span>
+                        </div>
+                        <div class="alert alert-info alert-dismissible fade show">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                          </button>
+                          <span><b> Info - </b> This is a regular notification made with ".alert-info"</span>
+                        </div>
+                        <div class="alert alert-success alert-dismissible fade show">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                          </button>
+                          <span><b> Success - </b> This is a regular notification made with ".alert-success"</span>
+                        </div>
+                        <div class="alert alert-warning alert-dismissible fade show">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                          </button>
+                          <span><b> Warning - </b> This is a regular notification made with ".alert-warning"</span>
+                        </div>
+                        <div class="alert alert-danger alert-dismissible fade show">
+                          <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="nc-icon nc-simple-remove"></i>
+                          </button>
+                          <span><b> Danger - </b> This is a regular notification made with ".alert-danger"</span>
+                        </div>
+                      </div>
+                    </div> -->
                 </div>
               </div>
             </div>
@@ -151,7 +209,11 @@ Coded by www.creative-tim.com
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="static/js/plugins/bootstrap-notify.js"></script>
-
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <!-- <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project! -->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="static/js/chart-page.js"></script>
+  <script src="static/demo/demo.js"></script>
 </body>
 
 </html>
