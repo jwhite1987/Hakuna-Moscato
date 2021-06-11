@@ -1,40 +1,38 @@
 var ctx = document.getElementById('pie-chart');
 
+
+
 console.log(ctx);
 
-d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
+d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 
         var red = [];
         var white = [];
-        var rose = [];
+        // var rose = [];
         d.forEach(function(data){
-                if (data.category == "red"){
+                if (data.color == "Red"){
                         red.push(data.category);
                 }
-                else if (data.category == "white"){
+                else if (data.color == "White"){
                         white.push(data.category);
-                }
-                else if (data.category == "rose"){
-                        rose.push(data.category);
                 }
         })
 
-        var catTot = red.length + white.length + rose.length;
+        var catTot = red.length + white.length;
 
         var redPerc = red.length/catTot;
         var whitePerc = white.length/catTot;
-        var rosePerc = rose.length/catTot;
         console.log(redPerc);
 
         new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                  labels: ["Red", "White", "Rose"],
+                  labels: ["Red", "White"],
                   datasets: [
                     {
                       label: "Wine Percentage in Region",
-                      backgroundColor: ["#722f37", "#EEEDC4", "#9d5c75"],
-                      data: [redPerc,whitePerc,rosePerc]
+                      backgroundColor: ["#722f37", "#EEEDC4"],
+                      data: [redPerc,whitePerc]
                     }
                   ]
                 },
@@ -46,7 +44,101 @@ d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
                 }
             });
             
-})
+        })
+
+var btx = document.getElementById('bar-chart')
+d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
+
+        var countryFilter = d.filter(d=>d.country === 'US');
+        // var countryRating = countryFilter.filter(d=>d.points);
+        // console.log(countryFilter[0].points);
+        pointsPerRegion = []
+        for (var i=0; i < countryFilter.length; i++) {
+                var points = countryFilter[i].points;
+                var region = countryFilter[i].province;
+
+                // dictionary
+                // pointsAndRegion = {'points': points, 'region': region};
+
+                // array
+                pointsAndRegion = [points, region];
+                pointsPerRegion.push(pointsAndRegion);
+        }
+console.log(pointsPerRegion[0][0]);
+
+// var groupBy = function(xs, key) {
+//         return xs.reduce(function(rv, x) {
+//           (rv[x[key]] = rv[x[key]] || []).push(x);
+//           return rv;
+//         }, {});
+//       };
+      
+//       console.log(groupBy(['one', 'two', 'three'], 'length'));
+
+
+
+        // for (var i=1; i<countryFilter.length; i++) {
+        //         var province = pointsPerRegion[i-1].province;
+        //         var
+        // }
+
+// pointsPerRegion.sort(function sortFunction(a, b) {
+//         return b - a;
+
+//       });
+
+
+
+});
+
+
+
+
+// d3.csv('static/data/updated_winery_dataset_categorized.csv').then(d => {
+
+//         var red = [];
+//         var white = [];
+//         var rose = [];
+//         d.forEach(function(data){
+//                 if (data.category == "red"){
+//                         red.push(data.category);
+//                 }
+//                 else if (data.category == "white"){
+//                         white.push(data.category);
+//                 }
+//                 else if (data.category == "rose"){
+//                         rose.push(data.category);
+//                 }
+//         })
+
+//         var catTot = red.length + white.length + rose.length;
+
+//         var redPerc = red.length/catTot;
+//         var whitePerc = white.length/catTot;
+//         var rosePerc = rose.length/catTot;
+//         console.log(redPerc);
+
+//         new Chart(ctx, {
+//                 type: 'doughnut',
+//                 data: {
+//                   labels: ["Red", "White", "Rose"],
+//                   datasets: [
+//                     {
+//                       label: "Wine Percentage in Region",
+//                       backgroundColor: ["#722f37", "#EEEDC4", "#9d5c75"],
+//                       data: [redPerc,whitePerc,rosePerc]
+//                     }
+//                   ]
+//                 },
+//                 options: {
+//                   title: {
+//                     display: true,
+//                     text: 'Wine Type by Percentage in Region'
+//                   }
+//                 }
+//             });
+            
+
 
 // function init() {
 
