@@ -217,9 +217,9 @@ var ctx_4 = document.getElementById('wineChart');
     var newData = items.slice(0, 5)
     console.log(newData[0])
     var areaChart = new Chart(ctx_4, {
+    type: 'pie',
     data: {
       datasets: [{
-        type: 'pie',
         label: 'Wine Magazine',
         data: newData,
         backgroundColor: [
