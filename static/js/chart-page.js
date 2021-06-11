@@ -1,3 +1,4 @@
+
 var ctx = document.getElementById('pie-chart');
 
 function init() {
@@ -15,16 +16,13 @@ const distinctCountries = [...new Set(d.map(x => x.country))];
         }
 
         // // apply an ID for the intial plots
-
         piechart(distinctCountries[1]);
 
     });
 };
 
     function optionChanged(Country){
-
         piechart(Country);
-
       };
       
 
@@ -32,12 +30,10 @@ const distinctCountries = [...new Set(d.map(x => x.country))];
 function piechart(Country){
 d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
         
-
         var countryFilter = d.filter(d=>d.country === Country);
 
         var red = [];
         var white = [];
-        // var rose = [];
         countryFilter.forEach(function(data){
                 if (data.color == "Red"){
                         red.push(data.category);
@@ -55,7 +51,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 
 
 
-         new Chart(ctx, {
+        var chart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                   labels: ["Red", "White"],
@@ -74,11 +70,11 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                   }
                 }
             });
-
+            chart.update();
         })
 }
 
-        init();
+
 
 // d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 //         var btx = document.getElementById('bar-chart')
@@ -113,7 +109,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 //               console.log( " White: "+whiteRatingAvg );
 
 
-//               new Chart(btx, {
+//               var chart = new Chart(btx, {
 //               type: 'bar',
 //               data: {
 //                 labels: ["Red", "White"],
@@ -133,6 +129,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 //                 }
 //               }
 //           });
+
 // });
 
 
@@ -233,3 +230,4 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               
 // });
 
+init();
