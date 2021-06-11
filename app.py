@@ -69,19 +69,19 @@ def search2():
 
     cur.rollback()
 
-@app.route('/color', methods=['GET', 'POST'])
-def color():
+@app.route('/colors', methods=['GET', 'POST'])
+def colors():
     if request.method == "POST":
-        colors = request.form['color']
-        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE colors = \'{color}\' ORDER BY score DESC;')
+        color = request.form['colorWine']
+        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE color = \'{color}\' ORDER BY score DESC;')
         con.commit()
         data = cur.fetchall()
         if len(data) == 0 and wine == 'all':
             cur.execute("SELECT * FROM gws_cleaned_dataset")
             con.commit()
             data = cursor.fetchall()
-        return render_template('search2.html', data=data)
-    return render_template('search2.html')
+        return render_template('colors.html', data=data)
+    return render_template('colors.html')
 
     cur.rollback()
 
