@@ -50,13 +50,40 @@ def search():
             data = cursor.fetchall()
         return render_template('search.html', data=data)
     return render_template('search.html')
+
     cur.rollback()
 
-# @app.route("/icons")
-# def icons():
-#
-#     # Return template and data
-#     return render_template("icons.html")
+@app.route('/search2', methods=['GET', 'POST'])
+def search2():
+    if request.method == "POST":
+        country = request.form['country']
+        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE country = \'{country}\' ORDER BY score DESC;')
+        con.commit()
+        data = cur.fetchall()
+        if len(data) == 0 and wine == 'all':
+            cur.execute("SELECT * FROM gws_cleaned_dataset")
+            con.commit()
+            data = cursor.fetchall()
+        return render_template('search2.html', data=data)
+    return render_template('search2.html')
+
+    cur.rollback()
+
+@app.route('/colors', methods=['GET', 'POST'])
+def colors():
+    if request.method == "POST":
+        color = request.form['colorWine']
+        cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE color = \'{color}\' ORDER BY score DESC;')
+        con.commit()
+        data = cur.fetchall()
+        if len(data) == 0 and wine == 'all':
+            cur.execute("SELECT * FROM gws_cleaned_dataset")
+            con.commit()
+            data = cursor.fetchall()
+        return render_template('colors.html', data=data)
+    return render_template('colors.html')
+
+    cur.rollback()
 
 @app.route("/map")
 def map():
@@ -70,23 +97,7 @@ def charts():
     # Return template and data
     return render_template("charts.html")
 
-# @app.route("/tables")
-# def tables():
-#
-#     # Return template and data
-#     return render_template("tables.html")
-#
-# @app.route("/typography")
-# def typography():
-#
-#     # Return template and data
-#     return render_template("typography.html")
-#
-# @app.route("/user")
-# def user():
-#
-#     # Return template and data
-#     return render_template("user.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

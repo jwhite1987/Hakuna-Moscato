@@ -21,7 +21,7 @@ Coded by www.creative-tim.com
   <link rel="icon" type="image/png" href="static/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Pitchfork Reviews
+    Hakuna Moscato
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -38,13 +38,7 @@ Coded by www.creative-tim.com
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-          <div class="logo-image-small">
-            <img src="static/img/logo-small.png">
-          </div>
-          <!-- <p>CT</p> -->
-        </a>
-        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{ url_for('home') }}" class="simple-text logo-normal">
           Hakuna Moscato
           <!-- <div class="logo-image-big">
             <img src="static/img/logo-big.png">
@@ -60,10 +54,15 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li>
-            <a href="{{ url_for('search') }}">
+            <a href="#" data-toggle="collapse" data-target="#demo">
               <i class="nc-icon nc-diamond"></i>
               <p>Search</p>
             </a>
+            <ul id="demo" class="collapse">
+              <li><a href="{{ url_for('search') }}">Search by Year</a></li>
+              <li><a href="{{ url_for('search2') }}">Search by Country</a></li>
+              <li><a href="{{ url_for('colors') }}">Search by Color</a></li>
+            </ul>
           </li>
           <li class="active ">
             <a href="{{ url_for('map') }}">
@@ -145,7 +144,6 @@ Coded by www.creative-tim.com
   <!--  Notifications Plugin    -->
   <script src="static/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="static/demo/demo.js"></script>
   <script>
     $(document).ready(function() {

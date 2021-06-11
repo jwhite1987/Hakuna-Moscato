@@ -24,9 +24,12 @@ Coded by www.creative-tim.com
     Hakuna Moscato
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <!-- CSS Files -->
   <link href="static/css/bootstrap.min.css" rel="stylesheet" />
   <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
@@ -39,17 +42,8 @@ Coded by www.creative-tim.com
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
-          <div class="logo-image-small">
-            <img src="static/img/logo-small.png">
-          </div>
-          <!-- <p>CT</p> -->
-        </a>
-        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="{{ url_for('home') }}" class="simple-text logo-normal">
           Hakuna Moscato
-          <!-- <div class="logo-image-big">
-            <img src="static/img/logo-big.png">
-          </div> -->
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -61,10 +55,15 @@ Coded by www.creative-tim.com
             </a>
           </li>
           <li>
-            <a href="{{ url_for('search') }}">
+            <a href="#" data-toggle="collapse" data-target="#demo">
               <i class="nc-icon nc-diamond"></i>
               <p>Search</p>
             </a>
+            <ul id="demo" class="collapse">
+              <li><a href="{{ url_for('search') }}">Search by Year</a></li>
+              <li><a href="{{ url_for('search2') }}">Search by Country</a></li>
+              <li><a href="{{ url_for('colors') }}">Search by Color</a></li>
+            </ul>
           </li>
           <li>
             <a href="{{ url_for('map') }}">
@@ -181,28 +180,6 @@ Coded by www.creative-tim.com
                     <div class="col-lg-8 ml-auto mr-auto">
                       <div class="row">
                         <div class="col-md-4">
-                          <!-- <button class="btn btn-primary btn-block" onclick="demo.showNotification('top','left')">Top Left</button>
-                        </div>
-                        <div class="col-md-4">
-                          <button class="btn btn-primary btn-block" onclick="demo.showNotification('top','center')">Top Center</button>
-                        </div>
-                        <div class="col-md-4">
-                          <button class="btn btn-primary btn-block" onclick="demo.showNotification('top','right')">Top Right</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-8 ml-auto mr-auto">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <button class="btn btn-primary btn-block" onclick="demo.showNotification('bottom','left')">Bottom Left</button>
-                        </div>
-                        <div class="col-md-4">
-                          <button class="btn btn-primary btn-block" onclick="demo.showNotification('bottom','center')">Bottom Center</button>
-                        </div>
-                        <div class="col-md-4">
-                          <button class="btn btn-primary btn-block" onclick="demo.showNotification('bottom','right')">Bottom Right</button> -->
                         </div>
                       </div>
                     </div>
@@ -213,37 +190,16 @@ Coded by www.creative-tim.com
           </div>
         </div>
       </div>
-      <!-- <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                © <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div> -->
+
   </div>
   <!--   Core JS Files   -->
   <script src="static/js/core/jquery.min.js"></script>
   <script src="static/js/core/popper.min.js"></script>
   <script src="static/js/core/bootstrap.min.js"></script>
   <script src="static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvDJD4M1FvA2YgS8V3aRL-FWxvljbQ_3s"></script>
   <!-- Chart JS -->
-  <script src="static/js/plugins/chartjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="static/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
