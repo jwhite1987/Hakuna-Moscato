@@ -215,13 +215,14 @@ var ctx_4 = document.getElementById('wineChart');
       return second[1] - first[1];
     });
     var newData = items.slice(0, 5)
-    console.log(newData[0])
+    console.log(newData[0][0])
     var areaChart = new Chart(ctx_4, {
     data: {
+      labels: [newData[0][0], newData[1][0], newData[2][0], newData[3][0], newData[4][0]],
       datasets: [{
         type: 'pie',
         label: 'Wine Magazine',
-        data: newData,
+        data: [newData[0][1], newData[1][1], newData[2][1], newData[3][1], newData[4][1]],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(255, 159, 64, 0.2)',

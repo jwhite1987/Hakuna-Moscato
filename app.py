@@ -60,7 +60,7 @@ def search2():
         cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE country = \'{country}\' ORDER BY score DESC;')
         con.commit()
         data = cur.fetchall()
-        if len(data) == 0 and wine == 'all':
+        if len(data) == 0 and country == 'all':
             cur.execute("SELECT * FROM gws_cleaned_dataset")
             con.commit()
             data = cursor.fetchall()
@@ -76,7 +76,7 @@ def colors():
         cur.execute(f'SELECT * FROM gws_cleaned_dataset WHERE color = \'{color}\' ORDER BY score DESC;')
         con.commit()
         data = cur.fetchall()
-        if len(data) == 0 and wine == 'all':
+        if len(data) == 0 and color == 'all':
             cur.execute("SELECT * FROM gws_cleaned_dataset")
             con.commit()
             data = cursor.fetchall()
