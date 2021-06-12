@@ -54,14 +54,16 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
         var data = [{
                 values: [redPerc, whitePerc],
                 labels: ['Red', 'White'],
-                type: 'pie',
                 marker:{
-                        color: ['rgb(155,34,66)', 'rgb(246, 237, 201)']
-                      }}];
+                        colors: ['rgba(155,34,66,0.9)', 'rgba(246, 237, 201,0.9)']
+                      },
+                type: 'pie'
+}];
         //       }}];
               
               
               var layout = {
+                title: 'Percent of Wine Type Produced',
                 height: 400,
                 width: 400
               };
@@ -109,7 +111,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 x: ['Red', 'White'],
                 y: [redRatingAvg, whiteRatingAvg],
                 marker:{
-                  color: ['rgba(155,34,66,0.7)', 'rgba(246, 237, 201,0.7)']
+                  color: ['rgba(155,34,66,0.9)', 'rgba(246, 237, 201,0.9)']
                 },
                 type: 'bar'
               };
@@ -118,7 +120,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               
               var layout = {
               title: 'Avg Wine Color Rating',
-              width: 300, height: 300, margin: { t: 0, b: 0, l:1 }, 
+              width: 300, height: 320, margin: { t: 0, b: 0, l:1 }, 
               };
               Plotly.newPlot('bar-chart', data, layout);
         });
@@ -210,7 +212,10 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               
               var data = [trace1];
               var layout = {
-                title: 'Avg Wine Color Rating',
+                colorway : ['rgba(155,34,66,0.9)'],
+                title: {
+                        text:'Avg Wine Color Rating'
+                },
                 width: 800, height: 300, margin: { t: 0, b: 0, l:1 }, 
                 };
               Plotly.newPlot("line-chart", data, layout);
