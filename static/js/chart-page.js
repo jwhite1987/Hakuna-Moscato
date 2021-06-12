@@ -1,4 +1,4 @@
-var ctx = document.getElementById('pie-chart');
+// var ctx = document.getElementById('pie-chart');
 
 function init() {
 
@@ -103,9 +103,6 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               var redRatingAvg = sum(redRating)/redRating.length;
               var whiteRatingAvg = sum(whiteRating)/whiteRating.length;
 
-              console.log( " Red: "+redRatingAvg );
-              console.log( " White: "+whiteRatingAvg );
-
               var trace1  = 
               {
                 x: ['Red', 'White'],
@@ -119,13 +116,14 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               var data = [trace1];
               
               var layout = {
-              title: 'Avg Wine Color Rating',
-              width: 300, height: 320, margin: { t: 0, b: 0, l:1 }, 
+              title:{ 
+                        text:'Avg Wine Color Rating'
+                },
+              width: 300, height: 320, margin: { t: 50, b: 0, l:1 }, 
               };
               Plotly.newPlot('bar-chart', data, layout);
         });
 };
-
 
 function linechart(Country){
 d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
@@ -175,7 +173,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 else if (data.wine_age > 10){
                         Rating10.push(data.score);
                 }
-                else if (data.wine_age >= 1){
+                else if (data.wine_age >= 0){
                         Rating1.push(data.score);
                 }
         })
@@ -200,9 +198,6 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               var Rating20avg = sum(Rating20)/Rating20.length;
               var Rating10avg = sum(Rating10)/Rating10.length;
               var Rating1avg =sum(Rating1)/Rating1.length;
-              console.log(Rating90avg);
-
-
 
               var trace1 = {
                 x: [100,90,80,70,60,50,40,30,20,10,1],
@@ -216,7 +211,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 title: {
                         text:'Avg Wine Color Rating'
                 },
-                width: 800, height: 300, margin: { t: 0, b: 0, l:1 }, 
+                width: 800, height: 300, margin: { t: 50, b: 50, l:50 }, 
                 };
               Plotly.newPlot("line-chart", data, layout);
               
