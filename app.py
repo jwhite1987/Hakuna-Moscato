@@ -91,6 +91,12 @@ def map():
     # Return template and data
     return render_template("map.html")
 
+@app.route("/new_charts")
+def new_charts():
+
+    # Return template and data
+    return render_template("new_charts.html")
+
 @app.route("/charts")
 def charts():
 
