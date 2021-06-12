@@ -69,10 +69,16 @@ Coded by www.creative-tim.com
               <p>Maps</p>
             </a>
           </li>
-          <li class="active ">
+          <li>
             <a href="{{ url_for('charts') }}">
-              <i class="nc-icon nc-bell-55"></i>
+              <i class="nc-icon nc-chart-bar-32"></i>
               <p>Charts</p>
+            </a>
+          </li>
+          <li class="active ">
+            <a href="{{ url_for('new_charts') }}">
+              <i class="nc-icon nc-laptop"></i>
+              <p>Tableau</p>
             </a>
           </li>
         </ul>
@@ -99,25 +105,15 @@ Coded by www.creative-tim.com
         <div class="row">
           <div class="col-md-12">
             <div class="card">
-              <div class="card-header">
-              </div>
-              <center>
-                <select id="selDataset" onchange="optionChanged(this.value)"></select>
-                <div class="panel-heading">
-                  <h3 class="panel-title">Choose A Country</h3>
-                </div>
-                <div id="sample-metadata" class="panel-body">
-                </div></center>
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <!-- <div id="pie-chart"> -->
-                      <!-- <canvas id="pie-chart" width="300" height="300"></canvas> -->
-                  </div>
-
-                  <div class="col-md-6">
-                    <!-- <div id="pie-chart"> -->
-                      <!-- <canvas id="bar-chart" width="300" height="300"></canvas> -->
+                <div class="places-buttons">
+                  <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto text-center">
+                      <h4 class="card-title"><center>
+                        <a href="https://public.tableau.com/profile/beth.myers#!/">Tableau Part One</a>
+                        </h4>
+                      <!-- <iframe src="https://public.tableau.com/profile/beth.myers#!/" width="800" height="600" frameBorder="0"></iframe></center> -->
+                    </div>
                   </div>
                 </div>
               </div>
@@ -131,18 +127,10 @@ Coded by www.creative-tim.com
                 <div class="places-buttons">
                   <div class="row">
                     <div class="col-md-6 ml-auto mr-auto text-center">
-                      <h4 class="card-title">
-                        Notifications Places
-                        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+                        <h4 class="card-title">
+                          <a href="https://public.tableau.com/profile/kurt.dietrich5254#!/">Tableau Part Deux</a>
                       </h4>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-8 ml-auto mr-auto">
-                      <div class="row">
-                        <div class="col-md-4">
-                        </div>
-                      </div>
+                      <!-- <iframe src="https://public.tableau.com/profile/beth.myers#!/" width="800" height="600" frameBorder="0"></iframe></center> -->
                     </div>
                   </div>
                 </div>
@@ -166,7 +154,7 @@ Coded by www.creative-tim.com
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <!-- <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project! -->
   <script src="https://d3js.org/d3.v6.min.js"></script>
-  <script src="static/js/j_charts.js"></script>
+
 </body>
 
 </html>
