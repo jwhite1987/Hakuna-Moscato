@@ -55,9 +55,10 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 values: [redPerc, whitePerc],
                 labels: ['Red', 'White'],
                 type: 'pie',
-                marker: {
-                        colors: 'rgba(155,34,66,0.7)", "rgba(246, 237, 201,0.7)',
-              }}];
+                marker:{
+                        color: ['rgb(155,34,66)', 'rgb(246, 237, 201)']
+                      }}];
+        //       }}];
               
               
               var layout = {
@@ -208,8 +209,11 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               };
               
               var data = [trace1];
-              
-              Plotly.newPlot("line-chart", data);
+              var layout = {
+                title: 'Avg Wine Color Rating',
+                width: 800, height: 300, margin: { t: 0, b: 0, l:1 }, 
+                };
+              Plotly.newPlot("line-chart", data, layout);
               
 });
 }
