@@ -36,6 +36,7 @@ Coded by www.creative-tim.com
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="static/demo/demo.css" rel="stylesheet" />
   <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body class="">
@@ -113,13 +114,13 @@ Coded by www.creative-tim.com
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6">
-                    <!-- <div id="pie-chart"> -->
-                      <canvas id="pie-chart" width="300" height="300"></canvas>
+                    <div id="pie-chart">
+                      <!-- <canvas id="pie-chart" width="300" height="300"></canvas> -->
                   </div>
 
                   <div class="col-md-6">
-                    <!-- <div id="pie-chart"> -->
-                      <canvas id="bar-chart" width="300" height="300"></canvas>
+                    <div id="bar-chart">
+                      <!-- <canvas id="bar-chart" width="300" height="300"></canvas> -->
                   </div>
                   
                     <!-- </div> -->
@@ -183,8 +184,9 @@ Coded by www.creative-tim.com
                   <div class="row">
                     <div class="col-md-6 ml-auto mr-auto text-center">
                       <h4 class="card-title">
-                        Notifications Places
-                        <canvas id="line-chart" width="800" height="400"></canvas>
+                        A Countrie's Average Wine Rating Based on The Age Of The Wine
+                        <!-- <canvas id="line-chart" width="800" height="400"></canvas> -->
+                        <div id="line-chart"></div>
                       </h4>
                     </div>
                   </div>
@@ -216,6 +218,7 @@ Coded by www.creative-tim.com
   <script src="static/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <!-- <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>Paper Dashboard DEMO methods, don't include it in your project! -->
+  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="static/js/chart-page.js"></script>
   <script src="static/demo/demo.js"></script>
