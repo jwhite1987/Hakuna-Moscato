@@ -16,8 +16,8 @@ dataD3.then(d => {
           datasets: [{
               label: countries,
               data: points,
-              borderColor: #000000,
-              backgroundColor: #FFFFFF
+              borderColor: 'black',
+              backgroundColor: 'white'
           }]
       },
       options: {
