@@ -103,6 +103,12 @@ def charts():
     # Return template and data
     return render_template("charts.html")
 
+@app.route("/test")
+def test():
+
+    # Return template and data
+    return render_template("test.html")
+
 
 
 if __name__ == "__main__":
