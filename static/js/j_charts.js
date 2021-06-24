@@ -27,3 +27,5 @@ dataD3.then(d => {
               text: 'Average Points by Country'
           }
       }
+  })
+})
