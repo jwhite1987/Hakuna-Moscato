@@ -119,7 +119,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               title:{ 
                         text:'Avg Wine Color Rating'
                 },
-              width: 300, height: 320, margin: { t: 50, b: 0, l:1 }, 
+              width: 300, height: 320, margin: { t: 50, b: 50, l:50 }, 
               };
               Plotly.newPlot('bar-chart', data, layout);
         });
