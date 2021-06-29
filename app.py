@@ -32,10 +32,17 @@ except:
     print('Error')
 
 @app.route("/")
-def home():
+def index():
 
     # Return template and data
     return render_template("index.html")
+
+@app.route("/home")
+def home():
+
+    # Return template and data
+    return render_template("home.html")
+
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
