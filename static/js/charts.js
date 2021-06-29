@@ -216,7 +216,7 @@ var ctx_4 = document.getElementById('wineChart');
     });
     var newData = items.slice(0, 5)
 
-    console.log(newData[0][0])
+    console.log([newData[0][0], newData[1][0], newData[2][0], newData[3][0], newData[4][0]])
     var areaChart = new Chart(ctx_4, {
     data: {
       labels: [newData[0][0], newData[1][0], newData[2][0], newData[3][0], newData[4][0]],
@@ -243,8 +243,8 @@ var ctx_4 = document.getElementById('wineChart');
           'rgb(201, 203, 207)'
         ],
         // borderWidth: 1,
-    }]
-    // options: {
+    }],
+    options: {
     //   // responsive: true,
     //   // indexAxis: 'x',
     //   // elements: {
@@ -252,7 +252,12 @@ var ctx_4 = document.getElementById('wineChart');
     //   //     borderWidth: 2,
     //   //   }
     //   // },
-    //   // plugins: {
+      plugins: {
+        legend: {
+        position: 'top',
+        }
+      }
+    }
     //   //   title: {
     //   //     display: true
     //   //   }
