@@ -116,6 +116,18 @@ def test():
     # Return template and data
     return render_template("test.html")
 
+@app.route("/icons")
+def icons():
+
+    # Return template and data
+    return render_template("icons.html")
+
+@app.route("/winemag")
+def winemag():
+
+    # Return template and data
+    return render_template("wine-mag.html")
+
 
 
 if __name__ == "__main__":
