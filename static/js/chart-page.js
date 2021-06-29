@@ -130,53 +130,84 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
         // var atx = document.getElementById('line-chart')
         var countryFilter = d.filter(d=>d.country === Country);
 
-        var Rating100 = [];
-        var Rating90 = [];
-        var Rating80 = [];
-        var Rating70 = [];
-        var Rating60 = [];
-        var Rating50 = [];
-        var Rating40 = [];
-        var Rating30 = [];
-        var Rating20 = [];
-        var Rating10 = [];
-        var Rating1 = [];
+        // var Rating100 = [];
+        // var Rating90 = [];
+        // var Rating80 = [];
+        // var Rating70 = [];
+        // var Rating60 = [];
+        // var Rating50 = [];
+        // var Rating40 = [];
+        // var Rating30 = [];
+        // var Rating20 = [];
+        // var Rating10 = [];
+        // var Rating1 = [];
 
-        countryFilter.forEach(function(data){
-                if (data.wine_age > 100){
-                        Rating100.push(data.score);
-                }
-                else if (data.wine_age > 90){
-                        Rating90.push(data.score);
-                }
-                else if (data.wine_age > 80){
-                        Rating80.push(data.score);
-                }
-                else if (data.wine_age > 70){
-                        Rating70.push(data.score);
-                }
-                else if (data.wine_age > 60){
-                        Rating60.push(data.score);
-                }
-                else if (data.wine_age > 50){
-                        Rating50.push(data.score);
-                }
-                else if (data.wine_age > 40){
-                        Rating40.push(data.score);
-                }
-                else if (data.wine_age > 30){
-                        Rating30.push(data.score);
-                }
-                else if (data.wine_age > 20){
-                        Rating20.push(data.score);
-                }
-                else if (data.wine_age > 10){
-                        Rating10.push(data.score);
-                }
-                else if (data.wine_age >= 0){
-                        Rating1.push(data.score);
-                }
-        })
+        // countryFilter.forEach(function(data){
+        //         if (data.wine_age > 100){
+        //                 Rating100.push(data.score);
+        //         }
+        //         else if (data.wine_age > 90){
+        //                 Rating90.push(data.score);
+        //         }
+        //         else if (data.wine_age > 80){
+        //                 Rating80.push(data.score);
+        //         }
+        //         else if (data.wine_age > 70){
+        //                 Rating70.push(data.score);
+        //         }
+        //         else if (data.wine_age > 60){
+        //                 Rating60.push(data.score);
+        //         }
+        //         else if (data.wine_age > 50){
+        //                 Rating50.push(data.score);
+        //         }
+        //         else if (data.wine_age > 40){
+        //                 Rating40.push(data.score);
+        //         }
+        //         else if (data.wine_age > 30){
+        //                 Rating30.push(data.score);
+        //         }
+        //         else if (data.wine_age > 20){
+        //                 Rating20.push(data.score);
+        //         }
+        //         else if (data.wine_age > 10){
+        //                 Rating10.push(data.score);
+        //         }
+        //         else if (data.wine_age >= 0){
+        //                 Rating1.push(data.score);
+        //         }
+        // })
+
+        // function sum( obj ) {
+        //         var sum = 0;
+        //         for( var el in obj ) {
+        //           if( obj.hasOwnProperty( el ) ) {
+        //             sum += parseFloat( obj[el] );
+        //           }
+        //         }
+        //         return sum;
+        //       }
+        //       var Rating100avg = sum(Rating100)/Rating100.length;
+        //       var Rating90avg =sum(Rating90)/Rating90.length;
+        //       var Rating80avg =sum(Rating80)/Rating80.length;
+        //       var Rating70avg = sum(Rating70)/Rating70.length;
+        //       var Rating60avg = sum(Rating60)/Rating60.length;
+        //       var Rating50avg = sum(Rating50)/Rating50.length;
+        //       var Rating40avg = sum(Rating40)/Rating40.length;
+        //       var Rating30avg = sum(Rating30)/Rating30.length;
+        //       var Rating20avg = sum(Rating20)/Rating20.length;
+        //       var Rating10avg = sum(Rating10)/Rating10.length;
+        //       var Rating1avg =sum(Rating1)/Rating1.length;
+
+        //       var trace1 = {
+        //         x: [100,90,80,70,60,50,40,30,20,10,1],
+        //         y: [Rating100avg,Rating90avg,Rating80avg,Rating70avg,Rating60avg,Rating50avg,Rating40avg,Rating30avg,Rating20avg,Rating10avg,Rating1avg],
+        //         type: 'scatter'
+        //       };
+
+        
+// let grps={}, s = newArr.forEach(g=>grps.hasOwnProperty(g.age)?grps[g.age].push(+g.score) : grps[g.age] = [+g.score]), avgs = Object.assign(...Object.entries(grps).map(g=>({[g[0]]:(g[1].reduce((b,a)=> b+a)/grps[g[0]].length).toFixed(2)})))
+// console.log(avgs);
 
 
         var newArr = countryFilter.map(function(elem) {
@@ -186,82 +217,37 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 };
             });
 
-        // const unique = [...new Set(newArr.map(item => item.age))];
+        const result = newArr
+        .sort((a, b) => a.age - b.age)
+        .reduce(
+          (acc, cur, i, { [i - 1]: last }) =>
+            cur.age === last?.age
+              ? Object.assign([...acc], {
+                  [acc.length - 1]: [...acc[acc.length - 1], cur],
+                })
+              : [...acc, [cur]],
+          []
+        )
+        .map((x) => ({
+          age: x[0].age,
+          score: x.reduce((a, b) => a + Number(b.score), 0) / x.length,
+        }));
+      
+//       console.log(result);
 
-        console.log(newArr);
-
-
-//         //  Calculate the sums and group data (while tracking count)
-//  const reduced = newArr.reduce(function(m, d){
-//         if(!m[d.age]){
-//           m[d.age] = {...d, count: 1};
-//           return m;
-//         }
-//         m[d.age].score += d.score;
-//         m[d.age].count += 1;
-//         return m;
-//      },{});
-     
-//      // Create new array from grouped data and compute the average
-//      const result = Object.keys(reduced).map(function(k){
-//          const item  = reduced[k];
-//          return {
-//              wine_age: item.age,
-//              score: item.score/item.count,
-//          }
-//      })
-     
-//      console.log(result);
-
-const groubElement = newArr.reduce((obj, val) => {
-        if (obj[val.age]) {
-            obj[val.age].score = obj[val.age].score + val.score;
-            obj[val.age].counter = obj[val.age].counter + 1;
-        } else {
-            obj[val.age] = val;
-            obj[val.age].counter = 1;
-        }
-        return obj;
-    
-    }, {});
-    
-    
-    
-    const groupElementWithMean = Object.values(groubElement).map(({
-        counter,
-        ...element
-    }) => {
-        element.score = (element.score / counter).toFixed(1);
-        return element;
-    });
-    
-    console.log(groubElement);
-
-
-        function sum( obj ) {
-                var sum = 0;
-                for( var el in obj ) {
-                  if( obj.hasOwnProperty( el ) ) {
-                    sum += parseFloat( obj[el] );
-                  }
-                }
-                return sum;
-              }
-              var Rating100avg = sum(Rating100)/Rating100.length;
-              var Rating90avg =sum(Rating90)/Rating90.length;
-              var Rating80avg =sum(Rating80)/Rating80.length;
-              var Rating70avg = sum(Rating70)/Rating70.length;
-              var Rating60avg = sum(Rating60)/Rating60.length;
-              var Rating50avg = sum(Rating50)/Rating50.length;
-              var Rating40avg = sum(Rating40)/Rating40.length;
-              var Rating30avg = sum(Rating30)/Rating30.length;
-              var Rating20avg = sum(Rating20)/Rating20.length;
-              var Rating10avg = sum(Rating10)/Rating10.length;
-              var Rating1avg =sum(Rating1)/Rating1.length;
+        var ages = [];
+        var scores = [];
+        
+        result.forEach(function(d){
+                ages.push(d.age);
+                scores.push(d.score);
+        });
+        
+        // console.log(scores);
 
               var trace1 = {
-                x: [100,90,80,70,60,50,40,30,20,10,1],
-                y: [Rating100avg,Rating90avg,Rating80avg,Rating70avg,Rating60avg,Rating50avg,Rating40avg,Rating30avg,Rating20avg,Rating10avg,Rating1avg],
+                x: ages,
+                y: scores,
                 type: 'scatter'
               };
               
@@ -269,8 +255,28 @@ const groubElement = newArr.reduce((obj, val) => {
               var layout = {
                 colorway : ['rgba(155,34,66,0.9)'],
                 title: {
-                        text:'Avg Wine Color Rating'
+                        text:'Avg Wine Rating'
                 },
+                xaxis: {
+                        title: {
+                          text: 'Age of Wine in Years',
+                          font: {
+                            family: 'Courier New, monospace',
+                            size: 18,
+                            color: '#7f7f7f'
+                          }
+                        },
+                      },
+                      yaxis: {
+                        title: {
+                          text: 'Average Score',
+                          font: {
+                            family: 'Courier New, monospace',
+                            size: 18,
+                            color: '#7f7f7f'
+                          }
+                        }
+                      },
                 width: 800, height: 300, margin: { t: 50, b: 50, l:50 }, 
                 };
               Plotly.newPlot("line-chart", data, layout);
