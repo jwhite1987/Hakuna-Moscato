@@ -132,15 +132,15 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 
         var Rating100 = [];
         var Rating90 = [];
-        var Rating80 = []
-        var Rating70 = []
-        var Rating60 = []
-        var Rating50 = []
-        var Rating40 = []
-        var Rating30 = []
-        var Rating20 = []
-        var Rating10 = []
-        var Rating1 = []
+        var Rating80 = [];
+        var Rating70 = [];
+        var Rating60 = [];
+        var Rating50 = [];
+        var Rating40 = [];
+        var Rating30 = [];
+        var Rating20 = [];
+        var Rating10 = [];
+        var Rating1 = [];
 
         countryFilter.forEach(function(data){
                 if (data.wine_age > 100){
@@ -177,6 +177,66 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                         Rating1.push(data.score);
                 }
         })
+
+
+        var newArr = countryFilter.map(function(elem) {
+                return {
+                    age: elem.wine_age,
+                    score: elem.score
+                };
+            });
+
+        // const unique = [...new Set(newArr.map(item => item.age))];
+
+        console.log(newArr);
+
+
+//         //  Calculate the sums and group data (while tracking count)
+//  const reduced = newArr.reduce(function(m, d){
+//         if(!m[d.age]){
+//           m[d.age] = {...d, count: 1};
+//           return m;
+//         }
+//         m[d.age].score += d.score;
+//         m[d.age].count += 1;
+//         return m;
+//      },{});
+     
+//      // Create new array from grouped data and compute the average
+//      const result = Object.keys(reduced).map(function(k){
+//          const item  = reduced[k];
+//          return {
+//              wine_age: item.age,
+//              score: item.score/item.count,
+//          }
+//      })
+     
+//      console.log(result);
+
+const groubElement = newArr.reduce((obj, val) => {
+        if (obj[val.age]) {
+            obj[val.age].score = obj[val.age].score + val.score;
+            obj[val.age].counter = obj[val.age].counter + 1;
+        } else {
+            obj[val.age] = val;
+            obj[val.age].counter = 1;
+        }
+        return obj;
+    
+    }, {});
+    
+    
+    
+    const groupElementWithMean = Object.values(groubElement).map(({
+        counter,
+        ...element
+    }) => {
+        element.score = (element.score / counter).toFixed(1);
+        return element;
+    });
+    
+    console.log(groubElement);
+
 
         function sum( obj ) {
                 var sum = 0;
