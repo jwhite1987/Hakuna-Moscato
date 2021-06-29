@@ -40,7 +40,7 @@ Coded by www.creative-tim.com
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="{{ url_for('home') }}" class="simple-text logo-normal">
+        <a href="{{ url_for('index') }}" class="simple-text logo-normal">
           Hakuna Moscato
         </a>
       </div>
@@ -134,8 +134,8 @@ Coded by www.creative-tim.com
                 <p class="card-category">Top 5 Wineries, by number of wines</p>
 
               </div>
-              <div class="card-body ">
-                <canvas id="wineChart" width="300" height="300"></canvas>
+              <div class="card-body " style="position: relative; height:70vh; width:70vw">
+                <canvas id="wineChart" style="width: 100px; height: 50px"></canvas>
               </div>
               <div class="card-footer ">
                 <hr>
