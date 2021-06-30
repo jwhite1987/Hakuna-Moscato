@@ -272,13 +272,13 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               var layout = {
                 colorway : ['rgba(155,34,66,0.9)'],
                 title: {
-                        text:'Avg Wine Rating'
+                        text:''
                 },
                 xaxis: {
                         title: {
                           text: 'Age of Wine in Years',
                           font: {
-                            family: 'Courier New, monospace',
+                            family: 'Montserrat, monospace',
                             size: 18,
                             color: '#7f7f7f'
                           }
@@ -288,7 +288,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                         title: {
                           text: 'Average Score',
                           font: {
-                            family: 'Courier New, monospace',
+                            family: 'Montserrat, monospace',
                             size: 18,
                             color: '#7f7f7f'
                           }
