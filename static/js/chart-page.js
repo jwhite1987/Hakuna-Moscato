@@ -26,12 +26,12 @@ piechart(Country);
 barchart(Country);
 linechart(Country);
 };
-      
+
 
 
 function piechart(Country){
 d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
-        
+
         var countryFilter = d.filter(d=>d.country === Country);
 
         var red = [];
@@ -60,15 +60,15 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 type: 'pie'
 }];
         //       }}];
-              
-              
+
+
               var layout = {
                 title: 'Percent of Wine Type Produced',
                 height: 400,
                 width: 400
               };
-              
-              Plotly.newPlot('pie-chart', data, layout);
+              var config = {responsive: true}
+              Plotly.newPlot('pie-chart', data, layout, config);
 });
 }
 
@@ -103,7 +103,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               var redRatingAvg = sum(redRating)/redRating.length;
               var whiteRatingAvg = sum(whiteRating)/whiteRating.length;
 
-              var trace1  = 
+              var trace1  =
               {
                 x: ['Red', 'White'],
                 y: [redRatingAvg, whiteRatingAvg],
@@ -112,16 +112,17 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 },
                 type: 'bar'
               };
-              
+
               var data = [trace1];
-              
+
               var layout = {
-              title:{ 
+              title:{
                         text:'Avg Wine Color Rating'
                 },
-              width: 300, height: 320, margin: { t: 50, b: 50, l:50 }, 
+              width: 300, height: 320, margin: { t: 50, b: 50, l:50 },
               };
-              Plotly.newPlot('bar-chart', data, layout);
+              var config = {responsive: true}
+              Plotly.newPlot('bar-chart', data, layout, config);
         });
 };
 
@@ -205,7 +206,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
         //         type: 'scatter'
         //       };
 
-        
+
 // let grps={}, s = newArr.forEach(g=>grps.hasOwnProperty(g.age)?grps[g.age].push(+g.score) : grps[g.age] = [+g.score]), avgs = Object.assign(...Object.entries(grps).map(g=>({[g[0]]:(g[1].reduce((b,a)=> b+a)/grps[g[0]].length).toFixed(2)})))
 // console.log(avgs);
 
@@ -238,17 +239,17 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
           age: x[0].age,
           score: x.reduce((a, b) => a + Number(b.score), 0) / x.length,
         }));
-      
+
 //       console.log(result);
 
         var ages = [];
         var scores = [];
-        
+
         result.forEach(function(d){
                 ages.push(d.age);
                 scores.push(d.score);
         });
-        
+
         // console.log(scores);
 
               var trace1 = {
@@ -256,7 +257,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 y: scores,
                 type: 'scatter'
               };
-              
+
         //       var trace2 = {
         //         x: ages,
         //         y: ageCount,
@@ -292,10 +293,11 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                           }
                         }
                       },
-                width: 800, height: 300, margin: { t: 50, b: 50, l:50 }, 
+                width: 800, height: 300, margin: { t: 50, b: 50, l:50 },
                 };
-              Plotly.newPlot("line-chart", data, layout);
-              
+                var config = {responsive: true}
+              Plotly.newPlot("line-chart", data, layout, config);
+
 });
 }
 
