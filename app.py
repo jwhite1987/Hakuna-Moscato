@@ -128,6 +128,12 @@ def winemag():
     # Return template and data
     return render_template("wine-mag.html")
 
+@app.route("/charts")
+def charts():
+
+    # Return template and data
+    return render_template("charts.html")
+
 
 
 if __name__ == "__main__":
