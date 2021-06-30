@@ -63,9 +63,10 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
 
 
               var layout = {
-                title: 'Percent of Wine Type Produced',
+                title: '',
                 height: 400,
-                width: 400
+                width: 400,
+                autosize: true
               };
               var config = {responsive: true}
               Plotly.newPlot('pie-chart', data, layout, config);
