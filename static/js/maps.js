@@ -38,7 +38,9 @@ map = new google.maps.Map(document.getElementById('map'), {
 });
 
 var heatmap = new google.maps.visualization.HeatmapLayer({
-  data: heatMapData
+  data: heatMapData,
+  maxIntensity: 100,
+  radius: 8
 });
 heatmap.setMap(map);
 new google.maps.Marker({
