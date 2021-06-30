@@ -61,6 +61,12 @@ Coded by www.creative-tim.com
               <p>Wine Magazine</p>
             </a>
           </li>
+          <li class="active ">
+            <a href="{{ url_for('charts') }}">
+              <i class="nc-icon nc-chart-bar-32"></i>
+              <p>Choose a Country</p>
+            </a>
+          </li>
           <li>
             <a href="#" data-toggle="collapse" data-target="#demo">
               <i class="nc-icon nc-zoom-split"></i>
@@ -76,12 +82,6 @@ Coded by www.creative-tim.com
             <a href="{{ url_for('map') }}">
               <i class="nc-icon nc-pin-3"></i>
               <p>Maps</p>
-            </a>
-          </li>
-          <li class="active ">
-            <a href="{{ url_for('charts') }}">
-              <i class="nc-icon nc-chart-bar-32"></i>
-              <p>Charts</p>
             </a>
           </li>
           <li>
@@ -105,71 +105,61 @@ Coded by www.creative-tim.com
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Charts</a>
+            <a class="navbar-brand" href="javascript:;">Choose a Country</a>
+                      <select id="selDataset" onchange="optionChanged(this.value)" class="form-control form-control-sm"></select>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-              </div>
-              <center>
-
-                <div class="panel-heading">
-                  <h5 class="card-title">Choose A Country</h5>
-                  <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          <div class="col-md-7">
+            <div class="card card-chart" style="width: 850px">
+            <div class="card-header ">
+                    <h5 class="card-title">
+                      Average Wine Rating </h5>
+                      <p class="card-category">Based on The Age Of The Wine</p>
+                      </div>
+                      <div class="card-body">
+                <center><div id="line-chart"></div></center>
+                <div class="card-footer ">
+                  <hr>
                 </div>
-                <div id="sample-metadata" class="panel-body">
-                </div></center>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card card-chart" style="width: 450px">
+              <div class="card-header ">
+                <h5 class="card-title">Percentage of Wine Type Produced</h5>
+                <p class="card-category">Red vs White</p>
+                </div>
               <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6"width="300" height="300">
-                    <div id="pie-chart"></div>
+                    <div id="pie-chart" style="width: 500px;"></div>
                   </div>
-                      <!-- <canvas id="pie-chart" width="300" height="300"></canvas> -->
-                  <div class="col-md-6" width="300" height="300">
-                    <div id="bar-chart"></div>
-                  </div>
-                </div>
-              </div>
               <div class="card-footer ">
                 <hr>
               </div>
             </div>
-            <div class="card">
-        <div class="row">
-          <div class="col-md-12">
-            <!-- <div class="card"> -->
+            </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-chart" style="width: 400px;">
+                <div class="card-header ">
+                  <h5 class="card-title">Average Wine Rating</h5>
+                    <p class="card-category">Red vs White</p>
+                  </div>
               <div class="card-body">
-                <div class="places-buttons">
-                  <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto text-center">
-                      <h5 class="card-title">
-                        A Country's Average Wine Rating </h5>
-                        <p class="card-category">Based on The Age Of The Wine</p>
-
-                        <!-- <canvas id="line-chart" width="800" height="400"></canvas> -->
-
-                    </div>
+                    <div id="bar-chart"></div>
                   </div>
-                  <center><div id="line-chart"></div></center>
-                  <!-- <div class="row">
-                    <div class="col-lg-8 ml-auto mr-auto">
-                      <div class="row">
-                        <div class="col-md-4">
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
-                  <div class="card-footer ">
-                    <hr>
-                  </div>
-                </div>
+              <div class="card-footer ">
+                <hr>
               </div>
             </div>
+          </div>
+
           </div>
         </div>
       </div>
