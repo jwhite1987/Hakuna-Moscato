@@ -26,12 +26,12 @@ piechart(Country);
 barchart(Country);
 linechart(Country);
 };
-      
+
 
 
 function piechart(Country){
 d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
-        
+
         var countryFilter = d.filter(d=>d.country === Country);
 
         var red = [];
@@ -60,15 +60,16 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 type: 'pie'
 }];
         //       }}];
-              
-              
+
+
               var layout = {
-                title: 'Percent of Wine Type Produced',
+                title: '',
                 height: 400,
-                width: 400
+                width: 400,
+                autosize: true
               };
-              
-              Plotly.newPlot('pie-chart', data, layout);
+              var config = {responsive: true}
+              Plotly.newPlot('pie-chart', data, layout, config);
 });
 }
 
@@ -103,7 +104,7 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
               var redRatingAvg = sum(redRating)/redRating.length;
               var whiteRatingAvg = sum(whiteRating)/whiteRating.length;
 
-              var trace1  = 
+              var trace1  =
               {
                 x: ['Red', 'White'],
                 y: [redRatingAvg, whiteRatingAvg],
@@ -112,16 +113,19 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 },
                 type: 'bar'
               };
-              
+
               var data = [trace1];
-              
+
               var layout = {
-              title:{ 
-                        text:'Avg Wine Color Rating'
+              title:{
+                        text:''
                 },
-              width: 300, height: 320, margin: { t: 50, b: 50, l:50 }, 
+              width: 350, height: 320, margin: { t: 50, b: 50, l:50 },
+              autosize: true
               };
-              Plotly.newPlot('bar-chart', data, layout);
+              var config = {responsive: true}
+              Plotly.newPlot('bar-chart', data, layout, config);
+
         });
 };
 
@@ -204,17 +208,19 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 y: [Rating100avg,Rating90avg,Rating80avg,Rating70avg,Rating60avg,Rating50avg,Rating40avg,Rating30avg,Rating20avg,Rating10avg,Rating1avg],
                 type: 'scatter'
               };
-              
+
               var data = [trace1];
               var layout = {
                 colorway : ['rgba(155,34,66,0.9)'],
                 title: {
-                        text:'Avg Wine Color Rating'
+                        text:''
                 },
-                width: 800, height: 300, margin: { t: 50, b: 50, l:50 }, 
+                width: 800, height: 300, margin: { t: 50, b: 50, l:50 },
+                autosize: true
                 };
-              Plotly.newPlot("line-chart", data, layout);
-              
+                var config = {responsive: true}
+              Plotly.newPlot("line-chart", data, layout, config);
+
 });
 }
 
@@ -263,12 +269,12 @@ init();
 // barchart(Country);
 // linechart(Country);
 // };
-      
+
 
 
 // function piechart(Country){
 // d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
-        
+
 //         var countryFilter = d.filter(d=>d.country === Country);
 
 //         var red = [];
@@ -451,7 +457,7 @@ init();
 //                 type: 'line',
 //                 data: {
 //                   labels: [100,90,80,70,60,50,40,30,20,10,1],
-//                   datasets: [{ 
+//                   datasets: [{
 //                       data: [Rating100avg,Rating90avg,Rating80avg,Rating70avg,Rating60avg,Rating50avg,Rating40avg,Rating30avg,Rating20avg,Rating10avg,Rating1avg],
 //                       label: "Average Wine Score by Age",
 //                       borderColor: "#722f37",
@@ -466,7 +472,7 @@ init();
 //                   }
 //                 }
 //               });
-              
+
 // });
 // }
 
