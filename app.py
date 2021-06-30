@@ -104,11 +104,11 @@ def new_charts():
     # Return template and data
     return render_template("new_charts.html")
 
-@app.route("/charts")
-def charts():
+@app.route("/team")
+def team():
 
     # Return template and data
-    return render_template("charts.html")
+    return render_template("team.html")
 
 @app.route("/test")
 def test():
