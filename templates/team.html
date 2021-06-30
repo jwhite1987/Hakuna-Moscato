@@ -1,0 +1,249 @@
+<!--
+=========================================================
+* Paper Dashboard 2 - v2.0.1
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/paper-dashboard-2
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="static/img/apple-icon.png">
+  <!-- <link rel="icon" type="image/png" href="static/img/favicon.png"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Hakuna Moscato
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- CSS Files -->
+  <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="static/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <link href="static/assets/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <!-- <script src="static/js/core/popper.min.js"></script> -->
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="{{ url_for('index') }}" class="simple-text logo-normal">
+          Hakuna Moscato
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+            <a href="{{ url_for('home') }}">
+              <i class="nc-icon nc-world-2"></i>
+              <p>Global Wine Score</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('winemag') }}">
+              <i class="nc-icon nc-single-copy-04"></i>
+              <p>Wine Magazine</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-toggle="collapse" data-target="#demo">
+              <i class="nc-icon nc-zoom-split"></i>
+              <p>GWS Search</p>
+            </a>
+            <ul id="demo" class="collapse">
+              <li><a href="{{ url_for('search') }}">Search by Year</a></li>
+              <li><a href="{{ url_for('search2') }}">Search by Country</a></li>
+              <li><a href="{{ url_for('colors') }}">Search by Color</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{ url_for('map') }}">
+              <i class="nc-icon nc-pin-3"></i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url_for('new_charts') }}">
+              <i class="nc-icon nc-laptop"></i>
+              <p>Tableau</p>
+            </a>
+          </li>
+          <li class="active ">
+            <a href="{{ url_for('team') }}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Meet the Team</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">Meet the Team</a>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <h5 class="card-title">Beth<br>Myers</h5>
+                <p class="card-category">Team Member</p>
+              </div>
+              <div class="card-body ">
+                <img src="static/img/team/beth.jpg">
+              </div>
+              <div class="card-footer " style="font-size: 20px;">
+                <hr>
+                <a href="https://www.linkedin.com/in/jimmywhite1987/" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/beth-myers-649a9722/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto: bmyers5817@gmail.com" class="email"><i class="bx bx-mail-send"></i></a>
+              </div>
+            </div>
+            </div>
+          <div class="col-md-2">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <h5 class="card-title">Cameron<br>Farquhar</h5>
+                <p class="card-category">Team Member</p>
+              </div>
+              <div class="card-body ">
+              <img src="static/img/team/cameron.jpg">
+              </div>
+              <div class="card-footer " style="font-size: 20px;">
+                <hr>
+                <a href="https://github.com/CameronFarquhar" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/kurtdietrich85" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto: cameronfarquhar@gmail.com" class="email"><i class="bx bx-mail-send"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <h5 class="card-title">Jared<br>Nieves</h5>
+                <p class="card-category">Team Member</p>
+              </div>
+              <div class="card-body ">
+              <img src="static/img/team/jared.png">
+              </div>
+              <div class="card-footer " style="font-size: 20px;">
+                <hr>
+                <a href="https://github.com/jared3194" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/jared-nieves-7baa72151/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto: jared3194@gmail.com" class="email"><i class="bx bx-mail-send"></i></a>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card card-chart">
+            <div class="card-header ">
+              <h5 class="card-title">Jimmy<br>White</h5>
+              <p class="card-category">Team Member</p>
+            </div>
+            <div class="card-body ">
+            <img src="static/img/team/jimmy.png">
+            </div>
+            <div class="card-footer " style="font-size: 20px;">
+              <hr>
+              <a href="https://github.com/jimmywhite1987/" class="github"><i class="bx bxl-github"></i></a>
+              <a href="https://www.linkedin.com/in/jimmywhite1987/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="mailto: jimmywhite8701@gmail.com" class="email"><i class="bx bx-mail-send"></i></a>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-2">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <h5 class="card-title">Kurt<br>Dietrich</h5>
+                <p class="card-category">Team Member</p>
+              </div>
+              <div class="card-body ">
+            <img src="static/img/team/kurt.jpg">
+
+              </div>
+              <div class="card-footer " style="font-size: 20px;">
+                <hr>
+                <a href="https://www.linkedin.com/in/jimmywhite1987/" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/kurtdietrich85" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto: kurt.dietrich.85@gmail.com" class="email"><i class="bx bx-mail-send"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <h5 class="card-title">Yuri<br>Groza</h5>
+                <p class="card-category">Team Member</p>
+              </div>
+              <div class="card-body ">
+              <img src="static/img/team/yuri.jpg">
+
+              </div>
+              <div class="card-footer " style="font-size: 20px;">
+                <hr>
+                <a href="https://github.com/YGroza83" class="github"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/yurigroza" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <a href="mailto: ygroza83@gmail.com" class="email"><i class="bx bx-mail-send"></i></a>
+              </div>
+            </div>
+        <!-- <div class="row">
+          <div class="col-md-12">
+            <div class="card card-chart">
+                <div class="card-header ">
+                  <h5 class="card-title">Team Member</h5>
+                  <p class="card-category">Count of Vintages</p>
+                </div>
+              <div class="card-body align-items-center" style="position: relative; height:50vh; width:70vw">
+                <canvas class="align-items-center" id="pieChart" style="width: 300px; height: 125px"></canvas>
+              </div>
+              <div class="card-footer ">
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="static/js/core/jquery.min.js"></script>
+  <script src="static/js/core/popper.min.js"></script>
+  <script src="static/js/core/bootstrap.min.js"></script>
+  <script src="static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="static/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="static/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+  <!-- <script src="https://d3js.org/d3.v6.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+
+</body>
+
+</html>
