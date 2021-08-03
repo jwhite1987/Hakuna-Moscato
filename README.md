@@ -1,7 +1,7 @@
 # HAKUNA MOSCATO,
 A PROJECT TO DETERMINE WINE QUALITY
 
-Final result: https://hakuna-moscato.herokuapp.com
+Final result: https://hakuna-moscato.ue.r.appspot.com
 
 ## Team Members:
 <img src="IMG/Wine.jpg" width=48%>
@@ -15,11 +15,11 @@ Final result: https://hakuna-moscato.herokuapp.com
 
 ## Project Description/Outline:
 
-* Visualization includes a Python Flask-powered API, HTML/CSS, JavaScript, and an SQL database. 
+* Visualization includes a Python Flask-powered API, HTML/CSS, JavaScript, and an SQL database.
 * In addition to the above, we utilized: Heroku, Bootstrap, Plotly, Leaflet and D3
 * Powered by a dataset with over 200000 records
-* Includes user-driven interaction 
- 
+* Includes user-driven interaction
+
 
 ## Datasets:
 <img src="IMG/Wine (1).jpg" width=48%>
