@@ -1,13 +1,13 @@
-# HAKUNA MOSCATO,
-A PROJECT TO DETERMINE WINE QUALITY
+# `Hakuna Moscato`
+A project to determine Wine Quality.
 
 [The App](https://hakuna-moscato.ue.r.appspot.com)
 
 Tableau Links
-[Part I](https://public.tableau.com/app/profile/beth.myers/viz/MiscWines/MiscWineDashboard)
-[Part II](https://public.tableau.com/app/profile/beth.myers/viz/Mapofwinessizedbyscore/Map)
-[Part III](https://public.tableau.com/app/profile/beth.myers/viz/AvePricepercountry/AvePricecountry)
-[Part IV](https://public.tableau.com/app/profile/kurt.dietrich5254/viz/v1WineWorkbook/ScorebyKeyReviewWord_1)
+* [Part I](https://public.tableau.com/app/profile/beth.myers/viz/MiscWines/MiscWineDashboard)
+* [Part II](https://public.tableau.com/app/profile/beth.myers/viz/Mapofwinessizedbyscore/Map)
+* [Part III](https://public.tableau.com/app/profile/beth.myers/viz/AvePricepercountry/AvePricecountry)
+* [Part IV](https://public.tableau.com/app/profile/kurt.dietrich5254/viz/v1WineWorkbook/ScorebyKeyReviewWord_1)
 
 ## Team Members:
 <img src="IMG/Wine.jpg" width=48%>
