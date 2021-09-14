@@ -21,8 +21,6 @@ Tableau Links
 
 - Python
 - Jupyter Notebook
-- HTML
-- CSS
 - Heroku
 - Google Cloud App
 - Bootstrap
