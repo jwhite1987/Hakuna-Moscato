@@ -33,8 +33,6 @@ Tableau Links
 - D3
 - Plotly
 
-## Screenshots
-
 ## Datasets
 <img src="IMG/Wine (1).jpg" width=48%>
 
