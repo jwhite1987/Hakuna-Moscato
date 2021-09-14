@@ -1,7 +1,13 @@
 # HAKUNA MOSCATO,
 A PROJECT TO DETERMINE WINE QUALITY
 
-Final result: https://hakuna-moscato.ue.r.appspot.com
+[The App](https://hakuna-moscato.ue.r.appspot.com)
+
+Tableau Links
+[Part I](https://public.tableau.com/app/profile/beth.myers/viz/MiscWines/MiscWineDashboard)
+[Part II](https://public.tableau.com/app/profile/beth.myers/viz/Mapofwinessizedbyscore/Map)
+[Part III](https://public.tableau.com/app/profile/beth.myers/viz/AvePricepercountry/AvePricecountry)
+[Part IV](https://public.tableau.com/app/profile/kurt.dietrich5254/viz/v1WineWorkbook/ScorebyKeyReviewWord_1)
 
 ## Team Members:
 <img src="IMG/Wine.jpg" width=48%>
@@ -13,15 +19,33 @@ Final result: https://hakuna-moscato.ue.r.appspot.com
 * Beth Myers
 * Yuri Groza
 
-## Project Description/Outline:
+## Project Description:
 
+* Using data scraped from Global Wine Score API as well as a dataset from Kaggle, the goal of this project is to determine what factors affect wine quality, including country of origin, price, color, and vintage.
 * Visualization includes a Python Flask-powered API, HTML/CSS, JavaScript, and an SQL database.
 * In addition to the above, we utilized: Heroku, Bootstrap, Plotly, Leaflet and D3
 * Powered by a dataset with over 200000 records
 * Includes user-driven interaction
 
+## Languages & Technology Used
 
-## Datasets:
+- Python
+- Jupyter Notebook
+- HTML
+- CSS
+- Heroku
+- Google Cloud App
+- Bootstrap
+- HTML
+- CSS
+- JavaScript
+- Leaflet
+- D3
+- Plotly
+
+## Screenshots
+
+## Datasets
 <img src="IMG/Wine (1).jpg" width=48%>
 
 ## Preliminary research
@@ -36,5 +60,7 @@ Final result: https://hakuna-moscato.ue.r.appspot.com
 <img src="IMG/Wine (18).jpg" width=48%> <img src="IMG/Wine (19).jpg" width=48%>
 <img src="IMG/Wine (20).jpg" width=48%> <img src="IMG/Wine (21).jpg" width=48%>
 <img src="IMG/Wine (22).jpg" width=48%> <img src="IMG/Wine (23).jpg" width=48%>
-## Special thanks
-<img src="IMG/Wine (24).jpg" width=97%>
+
+## Links
+- [JWhiteAnalytics.com](https://jwhiteanalytics.com)
+- [LinkedIn](https://www.linkedin.com/in/jimmywhite1987)
