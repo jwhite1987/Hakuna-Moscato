@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-hakuna.json
+*hakuna.json
+**hakuna.json
+*.json
+**.json
 
 # C extensions
 *.so
