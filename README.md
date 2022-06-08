@@ -1,7 +1,8 @@
 # `Hakuna Moscato`
 A project to determine Wine Quality.
 
-* [The App](https://hakuna-moscato.ue.r.appspot.com)
+* [The App] (temporarily down for maintenance issues)
+<!-- (https://hakuna-moscato.ue.r.appspot.com) -->
 
 Tableau Links
 * [Part I](https://public.tableau.com/app/profile/beth.myers/viz/MiscWines/MiscWineDashboard)

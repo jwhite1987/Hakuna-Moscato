@@ -1,1 +1,1 @@
-DB_PASSWORD = 'iwinoalot'
+DB_PASSWORD = 'hakunamoscato'
