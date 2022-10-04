@@ -28,7 +28,7 @@ def search():
           SELECT
           *
           FROM
-          hakunamoscato.wine_list.gwswinelist
+          hak-moscato.hak_moscato.gwswinelist
           WHERE vintage = @wine
           ORDER BY score DESC;
           """
@@ -51,7 +51,7 @@ def search2():
             SELECT
             *
             FROM
-            hakunamoscato.wine_list.gwswinelist
+            hak-moscato.hak_moscato.gwswinelist
             WHERE country = @country
             ORDER BY score DESC;
         """
@@ -76,7 +76,7 @@ def colors():
             SELECT
             *
             FROM
-            hakunamoscato.wine_list.gwswinelist
+            hak-moscato.hak_moscato.gwswinelist
             WHERE color = @color
             ORDER BY score DESC;
         """

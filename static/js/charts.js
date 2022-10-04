@@ -17,7 +17,7 @@ var ctx = document.getElementById('myChart');
 //           console.log(response);
 //       });
 
-var data = 'static/data/gwswinelist.csv'
+var data = '../static/data/gwswinelist.csv'
 
 d3.csv(data).then(d => {
   var countryNames = [... new Set(d.map(obj=>obj['country']))]
@@ -25,7 +25,7 @@ d3.csv(data).then(d => {
   var count = {};
   d.map(a => a.country).forEach(function(i) { count[i] = (count[i]||0) + 1;});
   console.log(count);
-  d3.csv('static/data/updated_winery_dataset.csv').then(data => {
+  d3.csv('../static/data/updated_winery_dataset.csv').then(data => {
     var count_2 = {};
     data.map(a=> a.country).forEach(function(i) {count_2[i] = (count_2[i]||0) + 1})
 
@@ -113,7 +113,7 @@ d3.csv(data).then(d => {
   var count = {};
   d.map(a => a.vintage).forEach(function(i) { count[i] = (count[i]||0) + 1;});
   console.log(count);
-  d3.csv('static/data/updated_winery_dataset.csv').then(data => {
+  d3.csv('../static/data/updated_winery_dataset.csv').then(data => {
     var countryNames = [... new Set(data.map(obj=>obj['country']))]
     var count_2 = {};
     data.map(a=> a.country).forEach(function(i) {count_2[i] = (count_2[i]||0) + 1})
@@ -164,7 +164,7 @@ d3.csv(data).then(d => {
   var count = {};
   d.map(a=> a.country).forEach(function(i) {count[i] = (count[i]||0) + 1})
   console.log(count);
-  d3.csv('static/data/updated_winery_dataset.csv').then(data => {
+  d3.csv('../static/data/updated_winery_dataset.csv').then(data => {
     var countryNames = [... new Set(data.map(obj=>obj['country']))]
     var count_2 = {};
     data.map(a=> a.country).forEach(function(i) {count_2[i] = (count_2[i]||0) + 1})
@@ -223,7 +223,7 @@ d3.csv(data).then(d => {
 
 
 var ctx_4 = document.getElementById('wineChart');
-  d3.csv('static/data/updated_winery_dataset.csv').then(data => {
+  d3.csv('../static/data/updated_winery_dataset.csv').then(data => {
     var winery = [... new Set(data.map(obj=>obj['winery']))]
     var count_2 = {};
     data.map(a=> a.winery).forEach(function(i) {count_2[i] = (count_2[i]||0) + 1})
