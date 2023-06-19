@@ -17,6 +17,7 @@ Tableau Links
 * In addition to the above, we utilized: Heroku, Bootstrap, Plotly, Leaflet and D3
 * Powered by a dataset with over 200000 records
 * Includes user-driven interaction
+* [Personal Tableau Visualization](https://public.tableau.com/views/HakunaMoscato/RatingsbyCountry?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)
 
 ## Languages & Technology Used
 
