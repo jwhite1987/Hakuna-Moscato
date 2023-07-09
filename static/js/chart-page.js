@@ -60,6 +60,15 @@ d3.csv('static/data/gws_cleaned_dataset.csv').then(d => {
                 type: 'pie'
 }];
         //       }}];
+              
+              
+              var layout = {
+                title: 'Percent of Wine Type Produced',
+                height: 400,
+                width: 400
+              };
+              
+              Plotly.newPlot('pie-chart', data, layout);
 
 
               var layout = {
